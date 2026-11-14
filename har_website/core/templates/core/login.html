@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | HAR</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+        }
+
+        .login-box {
+            width: 380px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            color: white;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 7px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 22px;
+            color: #cbd5e1;
+        }
+
+        .register a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">
+        HAR<span>.</span>
+    </div>
+
+    <p class="subtitle">
+        Human Activity Recognition
+    </p>
+
+    <form>
+        <label>Username</label>
+        <input type="text" placeholder="Enter username">
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter password">
+
+        <button type="submit">
+            Login
+        </button>
+    </form>
+
+    <div class="register">
+        Don't have an account?
+        <a href="#">Register</a>
+    </div>
+
+</div>
+
+</body>
+</html>

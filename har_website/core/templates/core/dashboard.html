@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | HAR</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .navbar {
+            background: #0f172a;
+            color: white;
+            padding: 18px 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            padding: 9px 18px;
+            border: 1px solid #38bdf8;
+            border-radius: 6px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #64748b;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        HAR<span>.</span>
+    </div>
+
+    <a href="/login/" class="logout">
+        Logout
+    </a>
+
+</div>
+
+<div class="container">
+
+    <div class="welcome">
+        <h1>Welcome to HAR Dashboard</h1>
+
+        <p>
+            Human Activity Recognition using Deep Learning
+        </p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">📹</div>
+
+            <h2>Live Recognition</h2>
+
+            <p>
+                Detect human activity in real time.
+            </p>
+
+            <a href="{% url 'live' %}" class="btn">
+                Start Camera
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📤</div>
+
+            <h2>Upload Video</h2>
+
+            <p>
+                Upload a video for activity recognition.
+            </p>
+
+            <a href="#" class="btn">
+                Upload Video
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📊</div>
+
+            <h2>Activity Result</h2>
+
+            <p>
+                View predicted activity and confidence.
+            </p>
+
+            <a href="#" class="btn">
+                View Result
+            </a>
+        </div>
+
+
+        <div class="card">
+            <div class="icon">📜</div>
+
+            <h2>History</h2>
+
+            <p>
+                View your previous activity predictions.
+            </p>
+
+            <a href="#" class="btn">
+                View History
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

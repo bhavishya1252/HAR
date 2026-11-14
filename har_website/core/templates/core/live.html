@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Recognition - HAR</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            color: #60a5fa;
+        }
+
+        .camera-box {
+            background: #111827;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 12px;
+            background: black;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #status {
+            margin-top: 15px;
+            color: #22c55e;
+        }
+        .result-box {
+          margin-top: 25px;
+           background: #1e293b;
+           padding: 20px;
+           border-radius: 15px;
+           text-align: left;
+        }
+
+       .result-box h2 {
+        color: #60a5fa;
+        margin-top: 0;
+        }
+
+        .result-box p {
+         font-size: 18px;
+         margin: 12px 0;
+        }
+
+       .result-box span {
+        font-weight: bold;
+        color: #22c55e;
+        }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Human Activity Recognition</h1>
+    <p>Live Activity Recognition</p>
+
+    <div class="camera-box">
+
+        <video id="camera" autoplay playsinline></video>
+
+        <br>
+
+        <button onclick="startCamera()">
+            Start Camera
+        </button>
+
+        <button onclick="stopCamera()">
+            Stop Camera
+        </button>
+
+        <p id="status">Camera is not started</p>
+  <div class="result-box">
+     <h2>Activity Result</h2>
+
+     <p>
+        Activity:
+        <span id="activity">Waiting...</span>
+     </p>
+
+     <p>
+        Confidence:
+        <span id="confidence">--</span>
+     </p>
+   </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let cameraStream = null;
+
+async function startCamera() {
+
+    try {
+
+        cameraStream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        });
+
+        document.getElementById("camera").srcObject = cameraStream;
+
+        document.getElementById("status").innerText =
+            "Camera started successfully";
+        document.getElementById("activity").innerText = "Camera Active";
+        document.getElementById("confidence").innerText = "Ready";
+
+    } catch (error) {
+
+        document.getElementById("status").innerText =
+            "Camera access denied or unavailable";
+
+        console.error(error);
+    }
+}
+
+
+function stopCamera() {
+
+    if (cameraStream) {
+
+        cameraStream.getTracks().forEach(function(track) {
+            track.stop();
+        });
+
+        cameraStream = null;
+    }
+
+    document.getElementById("camera").srcObject = null;
+
+    document.getElementById("status").innerText =
+        "Camera stopped";
+}
+
+</script>
+
+</body>
+</html>
